@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from "./component/layout/Navbar.js";
 import axios from 'axios';
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Users from "./component/User/Users.js";
 import Search from "./component/layout/Search";
 import Alert from "./component/layout/Alert";
@@ -48,18 +49,27 @@ class App extends Component {
     render(){
       const {loading,users}= this.state;
       return (
-        <div className='App'>
-          <Navbar icon="fab fa-github" title = "GitHub Finder"/>;
-          <Alert alert={this.state.alert} />
-          <div style={containerStyle}>
-             <Search  searchUsers={this.searchUsers} 
-                      clearUsers={this.clearUsers} 
-                      showClear={users.length > 0 ? true:false}
-                      setAlert={this.setAlert} />
-             <Users loading={loading} users={users} />
+        <Router>
+          <div className='App'>
+            <Navbar icon="fab fa-github" title = "GitHub Finder"/>;
+            <Alert alert={this.state.alert} />
+            <Switch>
+              <Route exact path='/' render={props =>(
+                  <div style={containerStyle}>
+                    <Search  searchUsers={this.searchUsers} 
+                              clearUsers={this.clearUsers} 
+                              showClear={users.length > 0 ? true:false}
+                              setAlert={this.setAlert} />
+                    <Users loading={loading} users={users} />
+                </div>
+           
+
+              )}/>
+            </Switch>
+            
           </div>
-         
-        </div>
+        </Router>
+        
       );
     }
    
