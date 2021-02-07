@@ -3,6 +3,7 @@ import Navbar from "./component/layout/Navbar.js";
 import axios from 'axios';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Users from "./component/User/Users.js";
+import User from "./component/User/User.js";
 import Search from "./component/layout/Search";
 import Alert from "./component/layout/Alert";
 import About from "./component/pages/About";
@@ -12,6 +13,7 @@ import './App.css';
 class App extends Component {
     state={
       users:[],
+      user:{},
       loading:false,
       alert:null
     }
@@ -34,6 +36,14 @@ class App extends Component {
       this.setState({users:res.data.items ,loading:false});
     }
 
+    singleUser = async(login)=>{
+      this.setState({loading:true});
+
+      const res = await axios.get(`https://api.github.com/users/${login}`);
+
+      this.setState({users:res.data ,loading:false});
+    }
+
     clearUsers = ()=> this.setState({users:[], loading:false});
 
     setAlert = (msg,type)=>{
@@ -48,7 +58,7 @@ class App extends Component {
 
    
     render(){
-      const {loading,users}= this.state;
+      const {loading,user,users}= this.state;
       return (
         <Router>
           <div className='App'>
@@ -68,6 +78,10 @@ class App extends Component {
                 )}/>
 
                 <Route exact path='/about' component={About}/>
+                <Route exact path='/user/:login' render={(props)=>(
+                  <User {...props} singleUser={this.singleUser} user={user} loading={loading} />
+                )} />
+
             </Switch>
             
           </div>
