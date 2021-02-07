@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
                     <h3>{login}</h3>
                     <br/>
-                    <button className='btn btn-dark' ><a href={html_url}></a>More</button>
+                   <a href={html_url} className='btn btn-dark'>More</a>
                 </div>
             </div>
         )

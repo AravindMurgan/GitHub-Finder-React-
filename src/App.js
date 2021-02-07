@@ -12,15 +12,22 @@ class App extends Component {
       loading:false
     }
 
-    async componentDidMount() {
-      this.setState({loading:true})
+    // async componentDidMount() {
+    //   this.setState({loading:true})
 
-      const res = await axios.get('https://api.github.com/users');
+    //   const res = await axios.get('https://api.github.com/users');
 
-      this.setState({users:res.data ,loading:false});
+    //   this.setState({users:res.data ,loading:false});
      
-    }
+    // }
 
+    searchUsers = async text => {
+      this.setState({loading:true});
+
+      const res = await axios.get(`https://api.github.com/search/users?q=${text}`);
+
+      this.setState({users:res.data.items ,loading:false});
+    }
 
 
     render(){
@@ -29,7 +36,7 @@ class App extends Component {
           <Navbar icon="fab fa-github" title = "GitHub Finder"/>;
          
           <div>
-             <Search/>
+             <Search  searchUsers={this.searchUsers} />
              <Users loading={this.state.loading} users={this.state.users} />
           </div>
          
