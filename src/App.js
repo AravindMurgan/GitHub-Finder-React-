@@ -78,7 +78,8 @@ class App extends Component {
                 )}/>
 
                 <Route exact path='/about' component={About}/>
-                <Route exact path='/user/:login' render={(props)=>(
+                <Route exact path='/user/:login' render={(props)=>
+                (
                   <User {...props} singleUser={this.singleUser} user={user} loading={loading} />
                 )} />
 
