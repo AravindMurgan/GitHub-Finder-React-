@@ -5,6 +5,7 @@ import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Users from "./component/User/Users.js";
 import Search from "./component/layout/Search";
 import Alert from "./component/layout/Alert";
+import About from "./component/pages/About";
 import './App.css';
 
 
@@ -64,10 +65,9 @@ class App extends Component {
                       <Users loading={loading} users={users} />
                     </div>
                   </Fragment>
-                  
-           
+                )}/>
 
-              )}/>
+                <Route exact path='/about' component={About}/>
             </Switch>
             
           </div>
