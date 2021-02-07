@@ -11,6 +11,7 @@ const Users =({users,loading})=>{
                 return(
                     <div style={userStyle}>
                         {users.map(user => (
+                                
                              <UserItem key={user.id} users={user} />
                         ))}
                     </div>

@@ -31,9 +31,9 @@ export class Search extends Component {
                         value={this.state.text}
                         onChange={this.onChange}
                         />
-                    <input type="submit" value="Search" className="btn btn-dark btn-block" />
+                    <input type="submit" value="Search" className="btn btn-dark2 btn-block" />
                 </form>
-                <button className="btn-block btn-light" style={{width:'100%'}} >Clear</button>
+                <button className="btn-block btn-light" style={{width:'100%',padding:'4.5px'}} >Clear</button>
             </div>
         )
     }

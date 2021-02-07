@@ -4,12 +4,10 @@ import PropTypes from 'prop-types';
 
 const Navbar = (props)=> {
         return (
-            <nav className="navbar bg-primary">
+            <nav className="navbar bg-primary2">
                 <h1>
                 < i className ={props.icon} /> {props.title}
-
                 </h1>
-                
             </nav>
         )
     

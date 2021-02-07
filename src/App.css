@@ -4,7 +4,7 @@
 :root {
   --primary-color: #dc3545;
   --dark-color: #333333;
-  --light-color: #f4f4f4;
+  --light-color: #f6f5f5;
   --danger-color: #dc3545;
   --success-color: #28a745;
 }
@@ -220,6 +220,8 @@ img {
 .btn-block {
   display: block;
   width: 100%;
+  border-radius: 5px;
+
 }
 
 .btn-sm {
@@ -252,6 +254,17 @@ img {
 .badge-primary,
 .alert-primary {
   background: var(--primary-color);
+  color: #fff;
+}
+
+.bg-primary2{
+  background: #276678;
+  color: #fff;
+  
+}
+
+.btn-dark2{
+  background: #1687a7;
   color: #fff;
 }
 

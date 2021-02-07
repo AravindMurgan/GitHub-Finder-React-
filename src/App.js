@@ -35,7 +35,7 @@ class App extends Component {
         <div className='App'>
           <Navbar icon="fab fa-github" title = "GitHub Finder"/>;
          
-          <div>
+          <div style={containerStyle}>
              <Search  searchUsers={this.searchUsers} />
              <Users loading={this.state.loading} users={this.state.users} />
           </div>
@@ -45,6 +45,10 @@ class App extends Component {
     }
    
 
+}
+
+const containerStyle = {
+  margin:'0 2.5rem'
 }
 
 export default App;
