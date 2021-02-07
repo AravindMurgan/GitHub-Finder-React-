@@ -1,12 +1,14 @@
 import React from 'react'
 
-export const Alert = ({alert}) => {
+ const Alert = ({alert}) => {
     return (
        alert !==null && (
-           <div className={`alert alert-${type}`}>
-
+           <div className={`alert alert-${alert.type}`} style={{margin:'0 2.5rem'}}>
+               <i className="fas fa-info-circle"></i> {alert.msg}
            </div>
        )
 
     )
 }
+
+export default Alert;

@@ -3,6 +3,7 @@ import Navbar from "./component/layout/Navbar.js";
 import axios from 'axios';
 import Users from "./component/User/Users.js";
 import Search from "./component/layout/Search";
+import Alert from "./component/layout/Alert";
 import './App.css';
 
 
@@ -34,8 +35,14 @@ class App extends Component {
     clearUsers = ()=> this.setState({users:[], loading:false});
 
     setAlert = (msg,type)=>{
+      this.setState({loading:false});
       this.setState({alert : {msg:msg,type:type}});
+
+      setTimeout(()=>{
+        this.setState({alert : null})
+      },3000)
     }
+  
 
    
     render(){
@@ -43,7 +50,7 @@ class App extends Component {
       return (
         <div className='App'>
           <Navbar icon="fab fa-github" title = "GitHub Finder"/>;
-         
+          <Alert alert={this.state.alert} />
           <div style={containerStyle}>
              <Search  searchUsers={this.searchUsers} 
                       clearUsers={this.clearUsers} 
