@@ -7,6 +7,7 @@ export class Search extends Component {
         text:''
     };
 
+
      onSubmit = (e)=>{
         e.preventDefault();
         if(this.state.text === ''){
