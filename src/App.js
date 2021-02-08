@@ -40,9 +40,8 @@ class App extends Component {
       this.setState({loading:true});
 
       const res = await axios.get(`https://api.github.com/users/${username}`);
-      console.log(res);
 
-      this.setState({users:res.data ,loading:false});
+      this.setState({user:res.data ,loading:false});
     }
 
     clearUsers = ()=> this.setState({users:[], loading:false});
@@ -81,7 +80,7 @@ class App extends Component {
                 <Route exact path='/about' component={About}/>
                 <Route exact path='/user/:login' render={(props)=>
                 (
-                  <User {...props} singleUser={this.singleUser} user={user} loading={loading} />
+                  <User {...props} singleUser={this.singleUser} users={user} loading={loading} />
                 )} />
 
             </Switch>
