@@ -36,10 +36,11 @@ class App extends Component {
       this.setState({users:res.data.items ,loading:false});
     }
 
-    singleUser = async(login)=>{
+    singleUser = async(username)=>{
       this.setState({loading:true});
 
-      const res = await axios.get(`https://api.github.com/users/${login}`);
+      const res = await axios.get(`https://api.github.com/users/${username}`);
+      console.log(res);
 
       this.setState({users:res.data ,loading:false});
     }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Fragment,Component } from 'react'
 
 class User extends Component {
     componentDidMount(){
@@ -23,9 +23,9 @@ class User extends Component {
 
         const {loading} = this.props;
         return (
-            <div>
-                {name}
-            </div>
+            <Fragment>
+               {location}
+            </Fragment>
         )
     }
 }
