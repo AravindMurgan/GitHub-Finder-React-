@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
     return (
         <div className="card" >
             <h3>
-                <a href={repo.html_url} style={{color:'#111'}}>{repo.name}</a>
+                <a href={repo.html_url} className="simplehover" style={{color:'#111'}}>{repo.name}</a>
             </h3>
         </div>
     )
