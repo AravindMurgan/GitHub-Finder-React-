@@ -48,9 +48,9 @@ class App extends Component {
     singleUserRepos = async(username)=>{
       this.setState({loading:true});
 
-      const res = await axios.get(`https://api.github.com/users/${username}/repos?per_page=5`)
+      const res = await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc`)
 
-      this.setState({user:res.data ,loading:false});
+      this.setState({repos:res.data ,loading:false});
     }
 
 
@@ -68,7 +68,7 @@ class App extends Component {
 
    
     render(){
-      const {loading,user,users}= this.state;
+      const {loading,user,users,repos}= this.state;
       return (
         <Router>
           <div className='App'>
@@ -90,7 +90,7 @@ class App extends Component {
                 <Route exact path='/about' component={About}/>
                 <Route exact path='/user/:login' render={(props)=>
                 (
-                  <User {...props} singleUser={this.singleUser}  users={user} singleUserRepos={this.singleUserRepos} repo={repos} loading={loading} />
+                  <User {...props} singleUser={this.singleUser}  users={user} singleUserRepos={this.singleUserRepos} repos={repos} loading={loading} />
                 )} />
 
             </Switch>
