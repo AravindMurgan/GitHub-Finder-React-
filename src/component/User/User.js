@@ -6,11 +6,13 @@ import {Link} from 'react-router-dom';
 class User extends Component {
     componentDidMount(){
         this.props.singleUser(this.props.match.params.login);
+        this.props.singleUserRepos(this.props.match.params.login);
     }
 
     static  propTypes = {
         loading:PropTypes.bool.isRequired,
         singleUser:PropTypes.func.isRequired,
+        singleUserRepos:PropTypes.func.isRequired,
         users:PropTypes.object.isRequired,
     }
     
@@ -32,7 +34,7 @@ class User extends Component {
             hireable
         } = this.props.users;
 
-        const {loading} = this.props;
+        const {loading,repo} = this.props;
 
         if(loading){
             return <Spinner/>
