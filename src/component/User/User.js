@@ -18,6 +18,7 @@ class User extends Component {
     render() {
         const {
             name,
+            company,
             avatar_url,
             location,
             bio,
@@ -65,7 +66,40 @@ class User extends Component {
                         </Fragment>
                         }
                         <a href={html_url} className="btn btn-dark my-1">Visit Github Profile</a>
+
+                        <ul>
+                            <li>
+                                {login &&
+                                    <Fragment>
+                                        <strong>Login: </strong>{login}
+                                    </Fragment>}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                {blog &&
+                                    <Fragment>
+                                        <strong>Blog: </strong>{blog}
+                                    </Fragment>}
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                {company &&
+                                    <Fragment>
+                                        <strong>Company: </strong>{company}
+                                    </Fragment>}
+                            </li>
+                        </ul>
                     </div>
+                    
+               </div>
+
+               <div className="card text-center">
+                   <div className="badge" style={{background:'#c23616',color:'#fff'}}>Followers: {followers}</div>
+                   <div className="badge" style={{background:'#dcdde1',color:'#fff'}}>Following: {following}</div>
+                   <div className="badge" style={{background:'#718093',color:'#fff'}}>Public Repos: {public_repos}</div>
+                   <div className="badge" style={{background:'#192a56',color:'#fff'}}>Public Gists: {public_gists}</div>
                </div>
             </Fragment>
         )
