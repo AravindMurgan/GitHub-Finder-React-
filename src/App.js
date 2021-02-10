@@ -7,6 +7,7 @@ import User from "./component/User/User.js";
 import Search from "./component/layout/Search";
 import Alert from "./component/layout/Alert";
 import About from "./component/pages/About";
+import GithubState from "./component/context/github/GithubState";
 import './App.css';
 
 // // let REACT_APP_GITHUB_TOKEN = '19599f4dcba8ba1bb0e10264e6f73e755df56f05';
@@ -72,6 +73,7 @@ const App =  ()=> {
     }
   
       return (
+        <GithubState>
         <Router>
           <div className='App'>
             <Navbar icon="fab fa-github" title = "GitHub Finder"/>;
@@ -99,6 +101,7 @@ const App =  ()=> {
             
           </div> 
         </Router>
+        </GithubState>
       );
                 
     
