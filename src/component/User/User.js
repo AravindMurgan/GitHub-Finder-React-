@@ -10,7 +10,8 @@ import Repo from '../repos/Repo';
         useEffect(()=> {
             singleUser(match.params.login);
             singleUserRepos(match.params.login);
-        })
+            //eslint-disable-next-line
+        },[]);
 
         const {
             name,
