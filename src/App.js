@@ -51,10 +51,7 @@ const App =  ()=> {
     }
 
 
-      const clearUsers = ()=> {
-        setUsers([]);
-        setLoading(false);
-      }
+  
 
       
       const showAlert = (msg,type)=>{
@@ -76,8 +73,9 @@ const App =  ()=> {
               <Route exact path='/' render={props =>(
                   <Fragment>
                     <div>
-                      <Search   clearUsers={clearUsers} 
-                                showClear={users.length > 0 ? true:false}
+                      <Search
+                                // clearUsers={clearUsers} 
+                                // showClear={users.length > 0 ? true:false} --- using in githubstate and context
                                 setAlert={showAlert} />
                       <Users loading={loading} users={users} />
                     </div>
