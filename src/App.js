@@ -21,34 +21,17 @@ import './App.css';
 
 const App =  ()=> {
 
-    const [users,setUsers]= useState([]);
     const [repos,setRepos]= useState([]);
-    const [user,setUser]= useState({});
-    const [loading,setLoading]= useState(false);
     const [alert,setAlert]= useState(null);
+    const [loading,setLoading] = useState(false);
   
 
       
     
 
-      const singleUser = async(username)=>{
-      setLoading(true);
+      
 
-      const res = await axios.get(`https://api.github.com/users/${username}?AravindMurgan/19599f4dcba8ba1bb0e10264e6f73e755df56f05`);
-
-      setUser(res.data);
-      setLoading(false);
-    }
-
-      const singleUserRepos = async(username)=>{
-
-      setLoading(true);
-
-      const res = await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc/AravindMurgan/19599f4dcba8ba1bb0e10264e6f73e755df56f05`)
-
-      setRepos(res.data);
-      setLoading(false);
-    }
+  
 
 
   
@@ -77,16 +60,13 @@ const App =  ()=> {
                                 // clearUsers={clearUsers} 
                                 // showClear={users.length > 0 ? true:false} --- using in githubstate and context
                                 setAlert={showAlert} />
-                      <Users loading={loading} users={users} />
+                      <Users />
                     </div>
                   </Fragment>
                 )}/>
 
                 <Route exact path='/about' component={About}/>
-                <Route exact path='/user/:login' render={(props)=>
-                (
-                  <User {...props} singleUser={singleUser}  users={user} singleUserRepos={singleUserRepos} repos={repos} loading={loading} />
-                )} />
+                <Route exact path='/user/:login' component={User} />
 
             </Switch>
             

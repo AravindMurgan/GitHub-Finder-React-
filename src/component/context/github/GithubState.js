@@ -39,8 +39,33 @@ const GithubState = (props) => {
        
 
     //Get user;
+    const singleUser = async(username)=>{
+        setLoading();
+  
+        const res = await axios.get(`https://api.github.com/users/${username}?AravindMurgan/19599f4dcba8ba1bb0e10264e6f73e755df56f05`);
+  
+        dispatch({
+            type:GET_USER,
+            payload:res.data
+        })
+      }
 
     // getRepos;
+
+    const singleUserRepos = async(username)=>{
+
+        setLoading();
+  
+        const res = await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc/AravindMurgan/19599f4dcba8ba1bb0e10264e6f73e755df56f05`)
+  
+        dispatch=({
+            type:GET_REPOS,
+             payload:res.data
+        })
+        // setRepos(res.data);
+        // setLoading();
+    
+    }
 
     //clear Users//
     const clearUsers = ()=> dispatch({
@@ -58,7 +83,10 @@ const GithubState = (props) => {
             repos:state.repos,
             loading:state.loading,
             searchUsers,
-            clearUsers
+            clearUsers,
+            singleUser,
+            singleUserRepos
+
         }}>
 
             {props.children}
