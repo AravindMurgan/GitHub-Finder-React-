@@ -2,6 +2,13 @@ import React,{useReducer} from 'react';
 import axios from 'axios';
 import GithubContext from './githubContext';
 import GithubReducer from './githubReducer';
+import {
+    SEARCH_USERS,
+    SET_LOADING,
+    CLEAR_USERS,
+    GET_USER,
+    GET_REPOS
+} from '../github/type';
 
 
 const GithubState = (props) => {
@@ -24,10 +31,12 @@ const GithubState = (props) => {
 
         dispatch({
             type: SEARCH_USERS,
-            payload: res.data
+            payload: res.data.items
         })
         // setUsers(res.data.items);
         // setLoading(false)};
+    }
+       
 
     //Get user;
 
@@ -48,7 +57,7 @@ const GithubState = (props) => {
             loading:state.loading,
             searchUsers
         }}>
-            
+
             {props.children}
         </GithubContext.Provider>
     )
