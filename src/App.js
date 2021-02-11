@@ -28,13 +28,7 @@ const App =  ()=> {
     const [alert,setAlert]= useState(null);
   
 
-      const searchUsers = async text => {
-          setLoading(true);
-
-          const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=3204ffdce24bf25d1770&client_secret=16a651230902abc0e408840f9917e2b1c2c963c9`);
-
-          setUsers(res.data.items);
-          setLoading(false)};
+      
     
 
       const singleUser = async(username)=>{
@@ -82,8 +76,7 @@ const App =  ()=> {
               <Route exact path='/' render={props =>(
                   <Fragment>
                     <div>
-                      <Search  searchUsers={searchUsers} 
-                                clearUsers={clearUsers} 
+                      <Search   clearUsers={clearUsers} 
                                 showClear={users.length > 0 ? true:false}
                                 setAlert={showAlert} />
                       <Users loading={loading} users={users} />
