@@ -58,12 +58,10 @@ const GithubState = (props) => {
   
         const res = await axios.get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc/AravindMurgan/19599f4dcba8ba1bb0e10264e6f73e755df56f05`)
   
-        dispatch=({
+        dispatch({
             type:GET_REPOS,
              payload:res.data
-        })
-        // setRepos(res.data);
-        // setLoading();
+        });
     
     }
 
