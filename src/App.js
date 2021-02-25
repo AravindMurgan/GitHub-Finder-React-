@@ -10,13 +10,6 @@ import './App.css';
 import Home from './component/pages/Home';
 import NotFound from './component/pages/NotFound';
 
-// // let REACT_APP_GITHUB_TOKEN = '19599f4dcba8ba1bb0e10264e6f73e755df56f05';
-
-// // const github = axios.create({
-// //   baseURL: 'https://api.github.com',
-// //   headers: { Authorization: process.env.REACT_APP_GITHUB_TOKEN }
-// })
-
 
 
 const App =  ()=> {
