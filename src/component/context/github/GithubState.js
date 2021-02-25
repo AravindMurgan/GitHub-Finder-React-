@@ -20,10 +20,20 @@ const GithubState = (props) => {
 
   const [state, dispatch] = useReducer(GithubReducer, initialState)
 
+  let token;
+
+  if(process.env.NODE_ENV !== 'production') {
+    token = process.env.REACT_APP_GITHUB_TOKEN;
+  }else{
+    token = process.env.GITHUB_TOKEN;
+  }
+
   const github = axios.create({
     baseURL: 'https://api.github.com',
-    headers: { Authorization: process.env.REACT_APP_GITHUB_TOKEN }
+    headers: { Authorization: token }
   })
+
+
 
   //seatch Users;
   const searchUsers = async (text) => {
