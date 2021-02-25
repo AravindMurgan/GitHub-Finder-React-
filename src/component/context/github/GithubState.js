@@ -90,4 +90,4 @@ const GithubState = (props) => {
   )
 }
 
-export default GithubState
+export default GithubState;
