@@ -7,6 +7,6 @@ export default (state, action) => {
     case REMOVE_ALERT:
       return null
     default:
-      throw new Error(`Unsupported type of: ${action.type}`)
+      return state
   }
 }
