@@ -6,6 +6,8 @@ import {
   GET_REPOS
 } from './type';
 
+
+/* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default (state, action) => {
   switch (action.type) {
     case SEARCH_USERS:
