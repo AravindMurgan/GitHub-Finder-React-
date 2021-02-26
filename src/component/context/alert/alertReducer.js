@@ -1,15 +1,12 @@
-import {
-    SET_ALERT,
-    REMOVE_ALERT
-} from '../github/type';
+import { SET_ALERT, REMOVE_ALERT } from '../github/type'
 
-export default (state,action)=>{
-    switch(action.type){
-        case SET_ALERT:
-            return action.payload;
-        case REMOVE_ALERT:
-            return null;
-        default:
-            return state;
-    }
-};
+export default (state, action) => {
+  switch (action.type) {
+    case SET_ALERT:
+      return action.payload
+    case REMOVE_ALERT:
+      return null
+    default:
+      throw new Error(`Unsupported type of: ${action.type}`)
+  }
+}
